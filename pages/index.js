@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import React from 'react';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import SignUp from './signUp';
 
 const auth = getAuth();
 
@@ -19,6 +20,8 @@ export default function Home() {
     }
     console.log(`Email: ${email} password:${passwd}`);
   }
+
+  
   const handleSignIn = (event) => {
     event.preventDefault();
     createUserWithEmailAndPassword(auth,email,passwd).then(
@@ -41,14 +44,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className='sign-in'>
+        {/* <div className='sign-in'>
           <h1>Sign in</h1>
           <label htmlFor='email'>Email</label>
           <input type={'email'} onChange={handleChange}  id='email' placeholder={'yourname@email.com'} required />
           <label htmlFor='passwd'>Password</label>
           <input type={'password'} onChange={handleChange} id='passwd' placeholder={'࡞࡞࡞࡞࡞࡞࡞'} required />  
           <button onClick={handleSignIn}>Sign In</button>
-        </div>
+        </div> */}
+        <SignUp />
       </main>
     </>
   )
